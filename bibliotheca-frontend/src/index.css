@@ -1,0 +1,83 @@
+/* Importa Tailwind CSS usando directivas modernas para Tailwind v4 */
+@import "tailwindcss/preflight";
+@import "tailwindcss/utilities";
+@import "./fonts.css";
+
+/* Estilos base */
+body {
+  background-color: #fdf6e3; /* Fondo pergamino */
+  color: #22223b; /* Tinta oscura */
+  font-family: 'Crimson Pro', serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Cinzel Decorative', serif;
+  font-weight: 700;
+  color: #cc7722; /* Bronze para títulos */
+}
+
+/* Componentes personalizados */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1.25rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
+  font-family: 'Cinzel Decorative', serif;
+  font-size: 1.1rem;
+  letter-spacing: 0.02em;
+  border: 2px solid #d4af37; /* dorado suave */
+  box-shadow: 0 2px 8px 0 rgba(204, 119, 34, 0.10), 0 0 0 2px #f4c542 inset;
+  background: linear-gradient(90deg, #fdf6e3 80%, #f4c542 100%);
+  color: #7c5e2c;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 0.75rem;
+  border: 2px solid #bfa76a;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+.btn-primary {
+  background: linear-gradient(90deg, #f4c542 60%, #d4af37 100%);
+  color: #22223b;
+  box-shadow: 0 4px 16px 0 rgba(244, 197, 66, 0.15), 0 0 0 2px #d4af37 inset;
+}
+
+.btn-primary:hover {
+  background: linear-gradient(90deg, #ffe9b3 60%, #f4c542 100%);
+  color: #bfa76a;
+  box-shadow: 0 6px 24px 0 rgba(244, 197, 66, 0.25), 0 0 0 2px #bfa76a inset;
+  transform: translateY(-2px) scale(1.03);
+}
+
+.btn-secondary {
+  background: linear-gradient(90deg, #fdf6e3 80%, #e5c99b 100%);
+  color: #bfa76a;
+  border: 2px solid #e5c99b;
+  box-shadow: 0 2px 8px 0 rgba(229, 201, 155, 0.10), 0 0 0 2px #e5c99b inset;
+}
+
+.btn-secondary:hover {
+  background: linear-gradient(90deg, #fff8e1 80%, #f4c542 100%);
+  color: #cc7722;
+  border-color: #f4c542;
+  box-shadow: 0 4px 16px 0 rgba(244, 197, 66, 0.15), 0 0 0 2px #f4c542 inset;
+  transform: translateY(-2px) scale(1.03);
+}
+
+.card {
+  background-color: white;
+  border-radius: 0.5rem;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  border: 1px solid #e5e7eb;
+  overflow: hidden;
+}

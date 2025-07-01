@@ -1,0 +1,22 @@
+/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {
+      colors: {
+        parchment: "#fdf6e3",
+        ink: "#22223b",
+        gold: "#f4c542",
+        bronze: "#cc7722",
+      },
+      fontFamily: {
+        title: ["'Cinzel Decorative'", "serif"],
+        body: ["'Crimson Pro'", "serif"],
+      },
+    },
+  },
+  plugins: [],
+};
