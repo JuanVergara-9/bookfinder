@@ -14,7 +14,7 @@ export default function NavigationBar({
 }: NavigationBarProps) {
   return (
     <div className="w-full flex justify-center my-8">
-      <div className="flex w-[1000px] max-w-lg h-[45px] rounded-[8px] overflow-hidden border-4 border-[#a67c52] bg-amber-50 shadow-sm">
+      <div className="flex w-[1000px] max-w-lg h-[45px] rounded-[8px] overflow-hidden border-4 border-[#a67c52] bg-amber-50 shadow-sm mb-[35px]">
         {/* Botón de búsqueda */}
         <button
           onClick={() => setActiveView("search")}

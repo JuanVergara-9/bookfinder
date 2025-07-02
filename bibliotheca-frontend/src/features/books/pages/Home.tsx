@@ -1,4 +1,7 @@
+import { useState } from "react";
 import NavigationBar from "../../../components/NavigationBar";
+import BookSearch from "../../../components/BookSearch";
+import Favorites from "../../../components/Favorites";
 
 // SVG decorativo tipo manuscrito
 const DecorativeDivider = () => (
@@ -28,6 +31,9 @@ const CrownIcon = () => (
 );
 
 export default function Home() {
+  const [activeView, setActiveView] = useState<'search' | 'favorites'>('search');
+  const [favoritesCount] = useState(0);
+
   return (
     <div className="min-h-screen flex flex-col items-center bg-parchment relative px-4 home-background">
       {/* Header decorativo */}
@@ -41,14 +47,15 @@ export default function Home() {
         <CrownIcon />
         <DecorativeDivider />
       </header>
-      <div>
-        <h2 className="text-2xl font-semibold text-[#7c4a03] mb-[20px]">Descubre, guarda y comparte tus libros favoritos</h2>
-      </div>
       <NavigationBar
-        activeView="search"
-        setActiveView={() => {}}
-        favoritesCount={0}
+        activeView={activeView}
+        setActiveView={setActiveView}
+        favoritesCount={favoritesCount}
       />
+
+      <main className="w-full max-w-4xl p-4">
+        {activeView === 'search' ? <BookSearch /> : <Favorites />}
+      </main>
     </div>
   );
 }
