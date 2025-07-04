@@ -1,0 +1,22 @@
+{
+  "name": "bookfinder-microservices",
+  "version": "1.0.0",
+  "description": "Microservices for BookFinder app",
+  "main": "index.js",
+  "workspaces": [
+    "api-gateway",
+    "auth-service",
+    "user-service",
+    "favorites-service"
+  ],
+  "scripts": {
+    "start": "concurrently \"npm run start --workspace=api-gateway\" \"npm run start --workspace=auth-service\" \"npm run start --workspace=user-service\" \"npm run start --workspace=favorites-service\"",
+    "dev": "concurrently \"npm run dev --workspace=api-gateway\" \"npm run dev --workspace=auth-service\" \"npm run dev --workspace=user-service\" \"npm run dev --workspace=favorites-service\""
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^9.2.0"
+  }
+}

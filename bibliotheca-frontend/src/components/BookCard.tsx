@@ -1,24 +1,75 @@
+import type { GoogleBook } from "./BookSearch";
+import { useFavorites } from "../context/FavoritesContext";
+
 interface BookCardProps {
-  title: string;
-  author: string;
-  cover: string;
+  book: GoogleBook;
 }
 
-export default function BookCard({ title, author, cover }: BookCardProps) {
-  return (
-    <div 
-      className="book-card bg-white/80 rounded-lg shadow-md overflow-hidden border border-amber-200 flex flex-row items-start p-4 transition-transform duration-300 hover:scale-105 hover:shadow-xl pl-[10px]"
-      style={{ width: '350px', height: '300px' }}
-    >
-      <div className="flex flex-col justify-between h-full ">
-        <div className="pt-[18px]">
-          <h3 className="font-title text-lg text-amber-900 leading-tight">{title}</h3>
-          <p className="font-body text-sm text-amber-800 italic mt-1 mb-[18px]">{author}</p>
-        </div>
-            <img src={cover} alt={`Portada de ${title}`} className="w-[100px] h-[140px] object-cover rounded-md shadow-sm border-2 border-amber-100 mr-4 flex-shrink-0" />
+export default function BookCard({ book }: BookCardProps) {
+  const { addFavorite, removeFavorite, isFavorite } = useFavorites();
+  const favorite = isFavorite(book.id);
 
-        <button className="btn btn-secondary mt-auto text-sm py-1 px-3 self-start">Ver Detalles</button>
+  const handleFavoriteClick = (e: React.MouseEvent) => {
+    e.stopPropagation(); // Evita que el click se propague a otros elementos
+    if (favorite) {
+      removeFavorite(book.id);
+    } else {
+      addFavorite(book);
+    }
+  };
+
+  const imageUrl = book.volumeInfo.imageLinks?.thumbnail || "/vite.svg";
+
+  return (
+    <div className="w-[420px] h-[260px] bg-gradient-to-br from-amber-50 to-yellow-50 border-2 border-amber-200 hover:border-amber-400 rounded-xl shadow-sm hover:shadow-lg transition-all duration-300 p-[16px] flex flex-col justify-between relative">
+
+      {/* Título y autor arriba */}
+      <div className="mb-2 pr-[20px]">
+        <h3 className="font-serif text-xl text-amber-900 leading-tight">{book.volumeInfo.title.toUpperCase()}</h3>
+        <p className="text-sm font-serif italic text-amber-700">~ {book.volumeInfo.authors?.join(", ")} ~</p>
       </div>
+
+      {/* Contenido horizontal */}
+      <div className="flex flex-row items-start gap-x-[20px] flex-1">
+
+        {/* Imagen a la izquierda */}
+        <img 
+          src={imageUrl} 
+          alt={`Portada de ${book.volumeInfo.title}`} 
+          className="w-[100px] h-[140px] object-cover rounded-md shadow border border-amber-100"
+        />
+
+        {/* Datos a la derecha */}
+        <div className="flex flex-col justify-between h-full text-[14px]">
+
+          <div className="flex flex-wrap gap-2 mb-1">
+            <span className="bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full border border-amber-300 text-xs">
+              Clásico
+            </span>
+            <span className="bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full border border-amber-300 text-xs">
+              Anno Domini 1605
+            </span>
+          </div>
+
+          <div className="text-amber-800 text-sm mt-1">
+            Vestra Aestimatio
+            <div className="text-yellow-500 text-base leading-snug">★★★★★</div>
+          </div>
+
+          <button className="mt-2 bg-white text-amber-700 text-sm font-semibold border border-amber-300 hover:bg-amber-100 py-1 px-3 rounded transition w-fit">
+            Inspicere Commentarios (0)
+          </button>
+        </div>
+      </div>
+
+      {/* Ícono favorito arriba a la derecha */}
+      <button 
+        onClick={handleFavoriteClick} 
+        className="absolute top-2 right-2 text-2xl text-yellow-500 hover:text-yellow-400 transition-colors duration-200 z-10"
+        aria-label={favorite ? "Quitar de favoritos" : "Añadir a favoritos"}
+      >
+        {favorite ? "★" : "☆"}
+      </button>
     </div>
   );
 }
