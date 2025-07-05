@@ -11,6 +11,7 @@ export interface GoogleBook {
     };
     publishedDate?: string;
     categories?: string[];
+    description?: string; // Añadido para la descripción
   };
 }
 
@@ -65,20 +66,31 @@ export default function BookSearch() {
       <h2 className="text-3xl font-serif text-amber-900 mb-6 text-center">Quaerere Libros</h2>
 
       {/* Buscador */}
-      <form onSubmit={handleSubmit} className="flex justify-center mb-8 gap-3">
-        <input
-          type="text"
-          value={query}
-          onChange={(e) => setQuery(e.target.value)}
-          placeholder="Escriba un título o autor..."
-          className="w-[300px] px-4 py-2 rounded border border-amber-300 focus:outline-none focus:ring-2 focus:ring-amber-400"
-        />
-        <button
-          type="submit"
-          className="bg-amber-600 text-white px-4 py-2 rounded hover:bg-amber-700 transition"
-        >
-          Buscar
-        </button>
+      <form onSubmit={handleSubmit} className="flex justify-center items-center mb-10 pb-[24px]">
+        <div className="flex bg-white border-2 border-amber-300 rounded-[8px] shadow-md border-[#ca9229b9] overflow-hidden w-[500px] max-w-full">
+          
+          {/* Ícono de lupa */}
+          <div className="flex items-center justify-center px-4 text-amber-600">
+            🔍
+          </div>
+
+          {/* Input */}
+          <input
+            type="text"
+            value={query}
+            onChange={(e) => setQuery(e.target.value)}
+            placeholder="Quaerere per titulum aut auctorem..."
+            className="flex-1 px-4 py-3 text-sm text-amber-900 font-serif placeholder-amber-400 focus:outline-none"
+          />
+
+          {/* Botón */}
+          <button
+            type="submit"
+            className="bg-amber-600 text-white px-6 text-sm font-semibold tracking-wide hover:bg-amber-700 transition p-[5px]"
+          >
+            Quaerere
+          </button>
+        </div>
       </form>
 
       {/* Resultados */}
