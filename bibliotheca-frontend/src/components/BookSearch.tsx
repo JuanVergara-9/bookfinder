@@ -62,12 +62,11 @@ export default function BookSearch() {
   };
 
   return (
-    <div className="w-full bg-amber-50/60 rounded-lg shadow-inner border border-amber-200 p-6">
-      <h2 className="text-3xl font-serif text-amber-900 mb-6 text-center">Quaerere Libros</h2>
+    <div className="w-full bg-amber-50/60 rounded-lg shadow-inner border-amber-200 p-6">
 
       {/* Buscador */}
       <form onSubmit={handleSubmit} className="flex justify-center items-center mb-10 pb-[24px]">
-        <div className="flex bg-white border-2 border-amber-300 rounded-[8px] shadow-md border-[#ca9229b9] overflow-hidden w-[500px] max-w-full">
+        <div className="flex bg-white border-2 border-amber-300 rounded-[8px] shadow-md border-[#ca9229b9] overflow-hidden w-[500px] max-w-full p-[10px]">
           
           {/* Ícono de lupa */}
           <div className="flex items-center justify-center px-4 text-amber-600">
@@ -82,15 +81,8 @@ export default function BookSearch() {
             placeholder="Quaerere per titulum aut auctorem..."
             className="flex-1 px-4 py-3 text-sm text-amber-900 font-serif placeholder-amber-400 focus:outline-none"
           />
+        </div>          
 
-          {/* Botón */}
-          <button
-            type="submit"
-            className="bg-amber-600 text-white px-6 text-sm font-semibold tracking-wide hover:bg-amber-700 transition p-[5px]"
-          >
-            Quaerere
-          </button>
-        </div>
       </form>
 
       {/* Resultados */}

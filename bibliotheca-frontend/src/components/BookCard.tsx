@@ -27,11 +27,11 @@ export default function BookCard({ book }: BookCardProps) {
 
 
 return (
-  <div className="w-[420px] h-[260px] bg-gradient-to-br from-amber-200 to-yellow-100 border-2 border-[#ca9229b9] hover:border-amber-400 rounded-[5px] shadow-sm hover:shadow-lg transition-all duration-300 p-[16px] flex flex-col justify-between relative">
+  <div className="w-[420px] h-[290px] bg-gradient-to-br from-amber-200 to-yellow-100 border-2 border-[#ca9229b9] hover:border-amber-400 rounded-[5px] shadow-sm hover:shadow-lg transition-all duration-300 p-[16px] flex flex-col justify-between relative">
 
     {/* Título y autor arriba */}
-    <div className="mb-2 pr-[20px]">
-      <h3 className="font-serif text-xl text-amber-900 leading-tight line-clamp-2 break-words">
+    <div className="mb-2 pr-[20px] pb-[20px]">
+      <h3 className="font-serif text-[16px] text-amber-900 leading-tight line-clamp-2 break-words">
         {title.toUpperCase()}
       </h3>
       <p className="text-sm font-serif italic text-amber-700 line-clamp-1">
@@ -54,10 +54,10 @@ return (
 
         {/* Etiquetas dinámicas */}
         <div className="flex flex-wrap gap-2 mb-1">
-          <span className="bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full border border-amber-300 text-xs">
+          <span className="bg-amber-100 text-amber-700 px-2 py-0.5 rounded-[13px] border border-amber-300 text-xs p-[3px] pr-[6px] pl-[6px]">
             {genre}
           </span>
-          <span className="bg-amber-100 text-amber-700 px-2 py-0.5 rounded-full border border-amber-300 text-xs">
+          <span className="bg-amber-100 text-amber-700 px-2 py-0.5 rounded-[13px] border border-amber-300 text-xs p-[3px] pr-[6px] pl-[6px]">
             Anno Domini {year}
           </span>
         </div>
@@ -83,10 +83,10 @@ return (
     {/* Ícono favorito arriba a la derecha */}
     <button 
       onClick={handleFavoriteClick} 
-      className="absolute top-2 right-2 text-2xl text-yellow-500 hover:text-yellow-400 transition-colors duration-200 z-10"
+      className="absolute top-2 right-[20px] text-[30px] text-yellow-500 hover:text-yellow-400 transition-colors duration-200 z-10"
       aria-label={favorite ? "Quitar de favoritos" : "Añadir a favoritos"}
     >
-      {favorite ? "★" : "☆"}
+      {favorite ? "❤" : "♡"}
     </button>
   </div>
 );
