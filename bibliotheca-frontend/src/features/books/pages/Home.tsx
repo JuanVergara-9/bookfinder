@@ -2,6 +2,7 @@ import { useState } from "react";
 import NavigationBar from "../../../components/NavigationBar";
 import BookSearch from "../../../components/BookSearch";
 import Favorites from "../../../components/Favorites";
+import Footer from "../../../components/Footer"; // Importar el nuevo componente
 
 // SVG decorativo tipo manuscrito
 const DecorativeDivider = () => (
@@ -56,6 +57,7 @@ export default function Home() {
       <main className="w-full max-w-4xl p-4">
         {activeView === 'search' ? <BookSearch /> : <Favorites />}
       </main>
+      <Footer /> {/* Añadir el Footer al final */}
     </div>
   );
 }

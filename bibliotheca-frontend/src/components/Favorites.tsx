@@ -5,12 +5,14 @@ export default function Favorites() {
   const { favorites } = useFavorites();
 
   return (
-    <div className="w-full p-4 bg-amber-50/50 rounded-lg shadow-inner border border-amber-200">
-      <h2 className="text-2xl font-title text-amber-900 mb-4">Mis Libros Favoritos</h2>
+    <div className="w-full p-6 bg-amber-50/60 rounded-lg shadow-inner">
       {favorites.length === 0 ? (
-        <p className="text-center text-stone-500">Aún no has añadido ningún libro a tus favoritos.</p>
+        <div className="text-center py-16">
+          <p className="text-xl text-amber-700 font-serif">Bibliotheca Vacua</p>
+          <p className="text-stone-500 mt-2">Vestra bibliotheca favoritorum vacua est. Adde libros quos amas.</p>
+        </div>
       ) : (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="flex flex-wrap justify-center gap-[40px]">
           {favorites.map((book) => (
             <BookCard key={book.id} book={book} />
           ))}
@@ -19,3 +21,4 @@ export default function Favorites() {
     </div>
   );
 }
+

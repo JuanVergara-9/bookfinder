@@ -10,7 +10,6 @@ interface NavigationBarProps {
 export default function NavigationBar({
   activeView,
   setActiveView,
-  favoritesCount,
 }: NavigationBarProps) {
   return (
     <div className="w-full flex justify-center my-8">
@@ -22,7 +21,7 @@ export default function NavigationBar({
             "flex-1 flex items-center justify-center gap-2 p-3 cursor-pointer",
             "font-body text-amber-900 text-base tracking-wider transition-all duration-300",
             activeView === "search"
-              ? "bg-black/5"
+              ? "bg-[#f8ddc1] border-b-2 border-[#a67c52] font-bold shadow-inner"
               : "hover:bg-black/5"
           )}
         >
@@ -40,12 +39,12 @@ export default function NavigationBar({
             "flex-1 flex items-center justify-center gap-2 p-3 cursor-pointer",
             "font-body text-amber-900 text-base tracking-wider transition-all duration-300",
             activeView === "favorites"
-              ? "bg-black/5"
+              ? "bg-[#f8ddc1] border-b-2 border-[#a67c52] font-bold shadow-inner"
               : "hover:bg-black/5"
           )}
         >
           <Heart className="w-5 h-5" />
-          {`Dilecti Libri (${favoritesCount})`}
+          {`Dilecti Libri`}
         </button>
       </div>
     </div>
